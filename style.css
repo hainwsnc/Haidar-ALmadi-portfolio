@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg: #F6F5F2;
+    --bg-alt: #ECEAE5;
+    --surface: rgba(255, 255, 255, 0.65);
+    --text: #16181B;
+    --text-dim: #6B7076;
+    --border: rgba(22, 24, 27, 0.1);
+    --accent: #B8860B;
+    --accent-soft: rgba(184, 134, 11, 0.12);
+    --shadow: rgba(22, 24, 27, 0.08);
+    --shadow-glow: rgba(184, 134, 11, 0.15);
+    --success: #2e7d32;
+    --progress: #ed6c02;
+    --grid-pattern: radial-gradient(var(--border) 1px, transparent 1px);
+}
+
+[data-theme="dark"] {
+    --bg: #0B0D10;
+    --bg-alt: #101317;
+    --surface: rgba(20, 23, 28, 0.55);
+    --text: #ECECEA;
+    --text-dim: #9AA0A6;
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #E3B341;
+    --accent-soft: rgba(227, 179, 65, 0.12);
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-glow: rgba(227, 179, 65, 0.25);
+    --success: #66bb6a;
+    --progress: #ffa726;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
+    background-color: var(--bg);
+    background-image: var(--grid-pattern);
+    background-size: 24px 24px;
+    color: var(--text);
+    line-height: 1.8;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+}
+
+/* في حال كانت اللغة إنجليزية، نغير الخط الأساسي */
+html[dir="ltr"] body {
+    font-family: 'JetBrains Mono', 'Segoe UI', sans-serif;
+}
+
+a { color: inherit; }
+
+/* مهم للوصول: أي حدا بيتصفح بالكيبورد لازم يشوف وين هو واقف */
+:focus-visible {
+    outline: 2px dashed var(--accent);
+    outline-offset: 4px;
+}
+
+.controls {
+    position: fixed;
+    top: 20px;
+    inset-inline-end: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 8px;
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px var(--shadow);
+}
+
+.icon-btn, .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.icon-btn:hover, .lang-btn:hover { background: var(--accent-soft); color: var(--accent); }
+
+.header {
+    background: linear-gradient(180deg, var(--bg-alt) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 6% 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 380px;
+}
+
+.header-content {
+    max-width: 58%;
+    z-index: 2;
+}
+
+.header h1 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 3.5rem;
+    color: transparent;
+    background: linear-gradient(120deg, var(--text) 20%, var(--accent) 50%, var(--text) 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite;
+}
+
+html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-weight: 800; }
+
+.contact-links { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+
+.contact-btn {
+    position: relative;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    padding: 8px 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: inline-end;
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+.contact-btn:hover { color: var(--bg); box-shadow: 0 8px 20px var(--shadow-glow); }
+.contact-btn:hover::before { transform: scaleX(1); }
+
+.location { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-dim); }
+
+.profile-pic {
+    height: 300px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    filter: drop-shadow(0 15px 25px var(--shadow));
+    animation: float 6s ease-in-out infinite;
+}
+
+.container { max-width: 1050px; margin: 0 auto; padding: 60px 20px; }
+
+.section {
+    background: var(--surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.section h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: inline-block;
+}
+.section h3::before { content: '< '; color: var(--text-dim); }
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-alt);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d; /* جاهزة لو حبيت تضيف تأثير Tilt بـ JS لاحقاً */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px var(--shadow-glow);
+}
+
+/* تنسيق حالة الشهادة (Completed / In Progress) */
+.cert-status {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--success) 15%, transparent);
+    color: var(--success);
+    border: 1px solid var(--success);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+.cert-status.cert-status--progress {
+    background: color-mix(in srgb, var(--progress) 15%, transparent);
+    color: var(--progress);
+    border-color: var(--progress);
+}
+
+.project-card h4 { font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
+.project-card p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 16px; }
+
+.course-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.course-tags li {
+    font-size: 0.8rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--text-dim);
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.experience-list { list-style: none; border-inline-start: 2px solid var(--border); padding-inline-start: 24px; }
+.experience-list li { margin-bottom: 24px; position: relative; }
+.experience-list li::before {
+    content: ''; position: absolute;
+    inset-inline-start: -31px; top: 6px;
+    width: 12px; height: 12px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+}
+
+.experience-list strong {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.experience-list strong a {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-soft);
+    text-underline-offset: 3px;
+    transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+.experience-list strong a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+.experience-list p, .experience-list span { color: var(--text-dim); }
+
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* احترام إعداد "تقليل الحركة" — التوهج اللانهائي والطفو يجب أن يتوقفا لمن يحتاج ذلك */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+    .header h1 { background-position: 0% center; }
+}
+
+.site-footer {
+    text-align: center;
+    padding: 32px 20px 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+}
+
+.site-footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.site-footer .footer-name {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 110px 6% 50px;
+        min-height: auto;
+    }
+    .header-content { max-width: 100%; }
+    .header h1 { font-size: 2.3rem; }
+    .contact-links { justify-content: center; }
+    .profile-pic { height: 200px; }
+    .container { padding: 40px 16px; }
+    .section { padding: 28px 20px; }
+}
