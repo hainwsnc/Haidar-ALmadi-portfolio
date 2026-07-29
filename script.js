@@ -2,7 +2,6 @@
 const themeToggleBtn = document.getElementById('theme-toggle');
 const langToggleBtn = document.getElementById('lang-toggle');
 const body = document.body;
-const controls = document.querySelector('.controls');
 
 // 2. نظام آمن للذاكرة المحلية (لتجنب الأخطاء عند فتح الموقع بدون سيرفر محلي)
 const storage = {
@@ -33,32 +32,33 @@ const applyTheme = (theme) => {
 };
 
 // 4. دالة تطبيق اللغة (Language)
+// ملاحظة: بعد نقل .controls داخل شريط التنقل العلوي (top-nav)،
+// اتجاه الصفحة (dir) هو المسؤول تلقائياً عن ترتيب العناصر (يمين/يسار)
+// فما عاد في داعي نتحكم يدوياً بموقع .controls زي قبل.
 const applyLanguage = (lang) => {
     const arElements = document.querySelectorAll('.ar-text');
     const enElements = document.querySelectorAll('.en-text');
 
     if (lang === 'en') {
         body.setAttribute('dir', 'ltr');
-        
+        document.documentElement.setAttribute('lang', 'en');
+
         // إخفاء العربي وإظهار الإنجليزي (استخدام '' يحافظ على تنسيق الـ CSS الأصلي)
         arElements.forEach(el => el.style.display = 'none');
-        enElements.forEach(el => el.style.display = ''); 
-        
+        enElements.forEach(el => el.style.display = '');
+
         langToggleBtn.textContent = 'عربي';
-        controls.style.left = 'auto';
-        controls.style.right = '20px';
     } else {
         body.setAttribute('dir', 'rtl');
-        
+        document.documentElement.setAttribute('lang', 'ar');
+
         // إخفاء الإنجليزي وإظهار العربي
         enElements.forEach(el => el.style.display = 'none');
         arElements.forEach(el => el.style.display = '');
-        
+
         langToggleBtn.textContent = 'English';
-        controls.style.right = 'auto';
-        controls.style.left = '20px';
     }
-    
+
     currentLang = lang;
     storage.set('portfolio-lang', lang);
 };

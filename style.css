@@ -33,6 +33,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
     background-color: var(--bg);
@@ -42,6 +46,7 @@ body {
     line-height: 1.8;
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: hidden;
+    padding-top: 56px;
 }
 
 /* في حال كانت اللغة إنجليزية، نغير الخط الأساسي */
@@ -57,20 +62,49 @@ a { color: inherit; }
     outline-offset: 4px;
 }
 
-.controls {
+.top-nav {
     position: fixed;
-    top: 20px;
-    inset-inline-end: 20px;
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     z-index: 100;
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
     background: var(--surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 8px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     box-shadow: 0 8px 32px var(--shadow);
+    overflow-x: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover { background: var(--accent-soft); color: var(--accent); }
+
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .icon-btn, .lang-btn {
@@ -90,7 +124,7 @@ a { color: inherit; }
 .header {
     background: linear-gradient(180deg, var(--bg-alt) 0%, transparent 100%);
     border-bottom: 1px solid var(--border);
-    padding: 100px 6% 70px;
+    padding: 50px 6% 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,7 +149,7 @@ a { color: inherit; }
 
 html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-weight: 800; }
 
-.contact-links { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+.contact-links { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; scroll-margin-top: 76px; }
 
 .contact-btn {
     position: relative;
@@ -142,6 +176,30 @@ html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-wei
 .contact-btn:hover { color: var(--bg); box-shadow: 0 8px 20px var(--shadow-glow); }
 .contact-btn:hover::before { transform: scaleX(1); }
 
+/* زر تحميل السيرة الذاتية - بارز عن أزرار التواصل العادية */
+.cv-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--bg);
+    background: var(--accent);
+    border: 1.5px solid var(--accent);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 10px 24px var(--shadow-glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cv-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 30px var(--shadow-glow); }
+
 .location { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-dim); }
 
 .profile-pic {
@@ -164,6 +222,7 @@ html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-wei
     border-radius: 16px;
     margin-bottom: 40px;
     transition: transform 0.3s ease;
+    scroll-margin-top: 76px;
 }
 
 .section h3 {
@@ -174,7 +233,47 @@ html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-wei
 }
 .section h3::before { content: '< '; color: var(--text-dim); }
 
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+/* قسم المهارات: تجميعات فرعية داخل قسم واحد */
+.skills-block { margin-bottom: 32px; }
+.skills-block:last-child { margin-bottom: 0; }
+
+.skills-heading {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.skill-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 18px 0 10px;
+}
+.skill-group-title:first-of-type { margin-top: 0; }
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+
+.issuer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-inline-start: 8px;
+}
+
+.issuer-badge img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    vertical-align: middle;
+}
 
 .project-card {
     display: block;
@@ -281,6 +380,7 @@ html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-wei
         transition-duration: 0.001ms !important;
     }
     .header h1 { background-position: 0% center; }
+    html { scroll-behavior: auto; }
 }
 
 .site-footer {
@@ -301,16 +401,27 @@ html[dir="ltr"] .header h1 { font-family: 'JetBrains Mono', sans-serif; font-wei
     font-weight: 600;
 }
 
+.site-footer .last-updated {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
 @media (max-width: 768px) {
+    .top-nav { padding: 10px 14px; gap: 8px; }
+    .nav-links { gap: 2px; }
+    .nav-links a { font-size: 0.72rem; padding: 5px 8px; }
+
     .header {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 110px 6% 50px;
+        padding: 90px 6% 50px;
         min-height: auto;
     }
     .header-content { max-width: 100%; }
     .header h1 { font-size: 2.3rem; }
     .contact-links { justify-content: center; }
+    .cv-buttons { justify-content: center; }
     .profile-pic { height: 200px; }
     .container { padding: 40px 16px; }
     .section { padding: 28px 20px; }

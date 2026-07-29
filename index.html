@@ -3,15 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haidar Almadi | Portfolio</title>
+    <title>Haidar Almadi | حيدر الماضي - Portfolio</title>
+    <meta name="description" content="حيدر الماضي - مسؤول عمليات إدارية ودعم تقني. ملف أعمال يعرض الشهادات المهنية، المهارات، والخبرة في الدعم التقني، إدارة المشاريع، والأعمال. | Haidar Almadi — Administrative Operations & IT Support Officer. Portfolio featuring certifications, skills, and experience in IT support, project management, and business operations.">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hainwsnc.github.io/Haidar-ALmadi-portfolio/">
+    <meta property="og:title" content="Haidar Almadi | حيدر الماضي - Portfolio">
+    <meta property="og:description" content="مسؤول عمليات إدارية ودعم تقني | Administrative Operations & IT Support Officer. Certifications, skills, and hands-on experience in IT support, project management, and business operations.">
+    <meta property="og:image" content="https://hainwsnc.github.io/Haidar-ALmadi-portfolio/haidar-pic.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hainwsnc.github.io/Haidar-ALmadi-portfolio/">
+    <meta name="twitter:title" content="Haidar Almadi | حيدر الماضي - Portfolio">
+    <meta name="twitter:description" content="مسؤول عمليات إدارية ودعم تقني | Administrative Operations & IT Support Officer. Certifications, skills, and hands-on experience in IT support, project management, and business operations.">
+    <meta name="twitter:image" content="https://hainwsnc.github.io/Haidar-ALmadi-portfolio/haidar-pic.jpg">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--  أزرار التحكم -->
-    <div class="controls">
-        <button id="theme-toggle" class="icon-btn" aria-label="تبديل الوضع الليلي">☀️</button>
-        <button id="lang-toggle" class="lang-btn" aria-label="Switch language">English</button>
-    </div>
+    <!-- شريط التنقل العلوي الثابت -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="#about"><span class="ar-text">نبذة عني</span><span class="en-text" style="display: none;">About</span></a>
+            <a href="#skills"><span class="ar-text">المهارات</span><span class="en-text" style="display: none;">Skills</span></a>
+            <a href="#certifications"><span class="ar-text">الشهادات</span><span class="en-text" style="display: none;">Certifications</span></a>
+            <a href="#experience"><span class="ar-text">الخبرة</span><span class="en-text" style="display: none;">Experience</span></a>
+            <a href="#education"><span class="ar-text">التعليم</span><span class="en-text" style="display: none;">Education</span></a>
+            <a href="#contact"><span class="ar-text">تواصل معي</span><span class="en-text" style="display: none;">Contact</span></a>
+        </div>
+        <div class="controls">
+            <button id="theme-toggle" class="icon-btn" aria-label="تبديل الوضع الليلي">☀️</button>
+            <button id="lang-toggle" class="lang-btn" aria-label="Switch language">English</button>
+        </div>
+    </nav>
 
     <!-- الترويسة -->
     <header class="header">
@@ -22,12 +48,19 @@
             <h2 class="ar-text">مسؤول عمليات إدارية ودعم تقني</h2>
             <h2 class="en-text" style="display: none;">Administrative Operations & IT Support Officer</h2>
 
-            <div class="contact-links">
+            <div class="contact-links" id="contact">
                 <a href="mailto:haiderabaalhsnin@gmail.com" class="contact-btn">✉️ Email</a>
                 <a href="https://wa.me/962795028723" target="_blank" rel="noopener noreferrer" class="contact-btn">📱 WhatsApp</a>
                 <a href="https://www.linkedin.com/in/haidar-almadi" target="_blank" rel="noopener noreferrer" class="contact-btn">💼 LinkedIn</a>
                 <a href="https://www.credly.com/users/haidar-almadi" target="_blank" rel="noopener noreferrer" class="contact-btn">🏅 Credly</a>
+                <a href="https://github.com/hainwsnc/Haidar-ALmadi-portfolio" target="_blank" rel="noopener noreferrer" class="contact-btn">🖥️ GitHub</a>
             </div>
+
+            <div class="cv-buttons">
+                <a href="cv-haidar-almadi-AR.pdf" download class="cv-btn">📄 السيرة الذاتية (عربي)</a>
+                <a href="cv-haidar-almadi-EN.pdf" download class="cv-btn">📄 CV (English)</a>
+            </div>
+
             <p class="location ar-text">📍 الجبيهة - عمّان، الأردن</p>
             <p class="location en-text" style="display: none;">📍 Al-Jubaiha - Amman, Jordan</p>
         </div>
@@ -38,7 +71,7 @@
 
     <main class="container">
         <!-- قسم نبذة عني -->
-        <section class="section">
+        <section class="section" id="about">
             <h3 class="ar-text">نبذة عني</h3>
             <h3 class="en-text" style="display: none;">About Me</h3>
             <p class="ar-text">
@@ -49,8 +82,103 @@
             </p>
         </section>
 
+        <!-- قسم المهارات -->
+        <section class="section" id="skills">
+            <h3 class="ar-text">المهارات</h3>
+            <h3 class="en-text" style="display: none;">Skills</h3>
+
+            <!-- المهارات التقنية والعملية (Hard Skills) -->
+            <div class="skills-block">
+                <div class="skills-heading ar-text">المهارات التقنية والعملية</div>
+                <div class="skills-heading en-text" style="display: none;">Technical & Practical Skills</div>
+
+                <div class="skill-group-title ar-text">إدارة الأعمال والموارد البشرية</div>
+                <div class="skill-group-title en-text" style="display: none;">Business & HR Management</div>
+                <ul class="course-tags">
+                    <li class="ar-text">استقطاب وتوظيف المواهب</li>
+                    <li class="en-text" style="display: none;">Recruitment & Talent Acquisition</li>
+                    <li class="ar-text">إدارة علاقات الموظفين</li>
+                    <li class="en-text" style="display: none;">Employee Relations Management</li>
+                    <li class="ar-text">التدريب والتطوير</li>
+                    <li class="en-text" style="display: none;">Training & Development</li>
+                    <li class="ar-text">صياغة تقارير الأداء</li>
+                    <li class="en-text" style="display: none;">Performance Report Writing</li>
+                    <li class="ar-text">إعداد التقارير</li>
+                    <li class="en-text" style="display: none;">Report Preparation</li>
+                    <li class="ar-text">إدخال البيانات</li>
+                    <li class="en-text" style="display: none;">Data Entry</li>
+                    <li class="ar-text">إدارة جداول الدوام</li>
+                    <li class="en-text" style="display: none;">Shift & Schedule Management</li>
+                </ul>
+
+                <div class="skill-group-title ar-text">المهارات التقنية</div>
+                <div class="skill-group-title en-text" style="display: none;">Technical Skills</div>
+                <ul class="course-tags">
+                    <li class="ar-text">حزمة Microsoft Office (Excel, Word, PowerPoint)</li>
+                    <li class="en-text" style="display: none;">Microsoft Office (Excel, Word, PowerPoint)</li>
+                    <li class="ar-text">أنظمة نقاط البيع (POS)</li>
+                    <li class="en-text" style="display: none;">Point of Sale (POS) Systems</li>
+                    <li class="ar-text">أدوات الذكاء الاصطناعي في الأعمال</li>
+                    <li class="en-text" style="display: none;">AI Tools for Business</li>
+                    <li class="ar-text">تركيب أنظمة التشغيل (Windows & Linux)</li>
+                    <li class="en-text" style="display: none;">Operating System Installation (Windows & Linux)</li>
+                    <li class="ar-text">تثبيت وإعداد البرامج</li>
+                    <li class="en-text" style="display: none;">Software Installation & Configuration</li>
+                    <li class="ar-text">صيانة الأجهزة والبرامج</li>
+                    <li class="en-text" style="display: none;">Hardware & Software Maintenance</li>
+                    <li class="ar-text">أساسيات الدعم التقني</li>
+                    <li class="en-text" style="display: none;">IT Support Fundamentals</li>
+                    <li class="ar-text">التسويق الرقمي وعبر وسائل التواصل الاجتماعي</li>
+                    <li class="en-text" style="display: none;">Digital & Social Media Marketing</li>
+                </ul>
+
+                <div class="skill-group-title ar-text">مهارات البيع والتجزئة</div>
+                <div class="skill-group-title en-text" style="display: none;">Retail & Sales Skills</div>
+                <ul class="course-tags">
+                    <li class="ar-text">إدارة المبيعات وعمليات التجزئة</li>
+                    <li class="en-text" style="display: none;">Sales & Retail Operations</li>
+                    <li class="ar-text">إدارة النقد والتعامل مع أنظمة نقاط البيع</li>
+                    <li class="en-text" style="display: none;">Cash Handling & POS Management</li>
+                    <li class="ar-text">إدارة المخازن ومراقبة المخزون</li>
+                    <li class="en-text" style="display: none;">Inventory & Warehouse Control</li>
+                    <li class="ar-text">إدارة علاقات العملاء</li>
+                    <li class="en-text" style="display: none;">Customer Relationship Management</li>
+                    <li class="ar-text">قيادة فرق العمل وتدريب الموظفين</li>
+                    <li class="en-text" style="display: none;">Team Leadership & Staff Training</li>
+                    <li class="ar-text">عرض المنتجات والتنسيق التجاري</li>
+                    <li class="en-text" style="display: none;">Merchandising & Product Display</li>
+                    <li class="ar-text">مبادئ المحاسبة وإصدار الفواتير</li>
+                    <li class="en-text" style="display: none;">Basic Accounting & Invoicing</li>
+                </ul>
+            </div>
+
+            <!-- المهارات الشخصية والتفاعلية (Soft Skills) -->
+            <div class="skills-block">
+                <div class="skills-heading ar-text">المهارات الشخصية والتفاعلية</div>
+                <div class="skills-heading en-text" style="display: none;">Personal & Interpersonal Skills</div>
+                <ul class="course-tags">
+                    <li class="ar-text">إدارة الوقت والتنظيم</li>
+                    <li class="en-text" style="display: none;">Time Management & Organization</li>
+                    <li class="ar-text">المرونة والتكيف</li>
+                    <li class="en-text" style="display: none;">Adaptability & Flexibility</li>
+                    <li class="ar-text">مهارات التفاوض والإقناع</li>
+                    <li class="en-text" style="display: none;">Negotiation & Persuasion</li>
+                    <li class="ar-text">التعلم الذاتي المستمر</li>
+                    <li class="en-text" style="display: none;">Continuous Self-Learning</li>
+                    <li class="ar-text">حل النزاعات</li>
+                    <li class="en-text" style="display: none;">Conflict Resolution</li>
+                    <li class="ar-text">الذكاء العاطفي</li>
+                    <li class="en-text" style="display: none;">Emotional Intelligence</li>
+                    <li class="ar-text">التواصل البنّاء</li>
+                    <li class="en-text" style="display: none;">Constructive Communication</li>
+                    <li class="ar-text">القيادة</li>
+                    <li class="en-text" style="display: none;">Leadership</li>
+                </ul>
+            </div>
+        </section>
+
         <!-- قسم الشهادات والدورات التدريبية -->
-        <section class="section">
+        <section class="section" id="certifications">
             <h3 class="ar-text">الشهادات والدورات التدريبية</h3>
             <h3 class="en-text" style="display: none;">Certifications & Training</h3>
             <div class="projects-grid">
@@ -59,6 +187,7 @@
                 <a href="https://coursera.org/share/975306b9caf267e391d42c8f750f2470" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.simpleicons.org/google" alt="Google" loading="lazy"> Google</span>
 
                     <h4 class="ar-text">الشهادة المهنية في التسويق الرقمي والتجارة الإلكترونية</h4>
                     <h4 class="en-text" style="display: none;">Google Digital Marketing & E-commerce Professional Certificate</h4>
@@ -84,6 +213,7 @@
                 <a href="https://coursera.org/share/d97e042f018053d8bab710a6872a4f10" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.simpleicons.org/google" alt="Google" loading="lazy"> Google</span>
 
                     <h4 class="ar-text">الشهادة المهنية في إدارة المشاريع من Google</h4>
                     <h4 class="en-text" style="display: none;">Google Project Management Professional Certificate</h4>
@@ -108,6 +238,7 @@
                 <a href="https://www.credly.com/badges/edd31dc5-8c01-475c-bf9a-22600dbc722d" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.simpleicons.org/cisco" alt="Cisco" loading="lazy"> Cisco</span>
 
                     <h4 class="ar-text">شهادة مقدمة في الأمن السيبراني</h4>
                     <h4 class="en-text" style="display: none;">Introduction to Cybersecurity</h4>
@@ -130,6 +261,7 @@
                 <a href="https://www.credly.com/badges/935cb33d-b078-4549-a68e-86af6272e06a" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.simpleicons.org/cisco" alt="Cisco" loading="lazy"> Cisco</span>
 
                     <h4 class="ar-text">شهادة مقدمة في الذكاء الاصطناعي الحديث</h4>
                     <h4 class="en-text" style="display: none;">Introduction to Modern AI</h4>
@@ -151,9 +283,10 @@
                 </a>
 
                 <!-- 5. Google IT Support -->
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/S24NJUNLZ07B" target="_blank" rel="noopener noreferrer" class="project-card">
+                <a href="https://www.credly.com/users/haidar-almadi" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.simpleicons.org/google" alt="Google" loading="lazy"> Google</span>
 
                     <h4 class="ar-text">الشهادة المهنية في دعم تقنية المعلومات</h4>
                     <h4 class="en-text" style="display: none;">Google IT Support Professional Certificate</h4>
@@ -176,6 +309,7 @@
                 <a href="#" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge">🏫 Omran Al-Shouha Center</span>
 
                     <h4 class="ar-text">دورة إدارة المشاريع الاحترافية (PMP)</h4>
                     <h4 class="en-text" style="display: none;">Project Management Professional (PMP) Course</h4>
@@ -188,6 +322,7 @@
                 <a href="#" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge">🏫 Omran Al-Shouha Center</span>
 
                     <h4 class="ar-text">دورة الموارد البشرية (HR)</h4>
                     <h4 class="en-text" style="display: none;">Human Resources (HR) Course</h4>
@@ -200,6 +335,7 @@
                 <a href="#" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge">🏫 Omran Al-Shouha Center</span>
 
                     <h4 class="ar-text">دورة التسويق الإلكتروني (E-Marketing)</h4>
                     <h4 class="en-text" style="display: none;">E-Marketing Course</h4>
@@ -212,6 +348,7 @@
                 <a href="#" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge">🎓 H2 Academy</span>
 
                     <h4 class="ar-text">التدريب العملي في التسويق الرقمي</h4>
                     <h4 class="en-text" style="display: none;">Digital Marketing Internship</h4>
@@ -231,6 +368,7 @@
                 <a href="https://coursera.org/share/5121cb4ef59da79c03ebcd05deb3267d" target="_blank" rel="noopener noreferrer" class="project-card">
                     <span class="cert-status ar-text">مكتملة</span>
                     <span class="cert-status en-text" style="display: none;">Completed</span>
+                    <span class="issuer-badge"><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/interactive-brokers.svg" alt="Interactive Brokers" loading="lazy"> Interactive Brokers</span>
 
                     <h4 class="ar-text">تخصص الدليل العملي للتداول</h4>
                     <h4 class="en-text" style="display: none;">Practical Guide to Trading Specialization</h4>
@@ -251,7 +389,7 @@
         </section>
 
         <!-- قسم الخبرات المهنية -->
-        <section class="section">
+        <section class="section" id="experience">
             <h3 class="ar-text">الخبرة المهنية</h3>
             <h3 class="en-text" style="display: none;">Professional Experience</h3>
             <ul class="experience-list">
@@ -277,7 +415,7 @@
         </section>
 
         <!-- قسم التعليم -->
-        <section class="section">
+        <section class="section" id="education">
             <h3 class="ar-text">التعليم</h3>
             <h3 class="en-text" style="display: none;">Education</h3>
             <ul class="experience-list">
@@ -297,6 +435,8 @@
     <footer class="site-footer">
         <p class="ar-text">تم برمجة الموقع بواسطة <span class="footer-name">حيدر فادي الماضي</span></p>
         <p class="en-text" style="display: none;">Built by <span class="footer-name">Haidar Fadi Almadi</span></p>
+        <p class="last-updated ar-text">آخر تحديث: يوليو 2026</p>
+        <p class="last-updated en-text" style="display: none;">Last updated: July 2026</p>
     </footer>
 
     <script src="script.js"></script>
